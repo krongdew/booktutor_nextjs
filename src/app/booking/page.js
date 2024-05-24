@@ -75,11 +75,15 @@ export default function Booking() {
   
       
       <h1>Book a Lesson</h1>
+      <div className="flex">
+      <div className="w-full max-w-md">
       <Calendar onChange={handleDateChange} 
       value={selectedDate} 
       className="border rounded-lg shadow-md" // ปรับสไตล์ปฏิทินด้วย Tailwind CSS
       tileClassName="hover:bg-blue-100 cursor-pointer" // ปรับสไตล์วันที่
       />
+      </div>
+       <div className="ml-4">
       <select onChange={(e) => handleTeacherChange(parseInt(e.target.value))}
        className="mt-4 px-4 py-2 border rounded-md shadow-sm">
         <option value="">Select a teacher</option>
@@ -89,15 +93,20 @@ export default function Booking() {
           </option>
         ))}
       </select>
+      <div className="mt-4">
       {selectedDate && selectedTeacher && (
+        
         <TimeSlots
           date={selectedDate}
           teacher={selectedTeacher}
           schedule={teacherSchedules[selectedTeacher][selectedDate.toISOString().slice(0, 10)]}
           bookedSlots={bookedSlots[selectedDate.toISOString().slice(0, 10)] || []}
         />
+        
       )}
-      
+      </div>
+      </div>
+      </div>
       <br></br>
     </div>
   );

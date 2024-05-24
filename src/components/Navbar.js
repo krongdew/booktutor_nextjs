@@ -24,7 +24,13 @@ export default function Navbar() {
             Contact
           </Link>
         </li>
+        <li>
+          <Link href="/Shoppingtutor" className="hover:text-gray-400">
+            Tutor Profile
+          </Link>
+        </li>
       </ul>
+      
     </nav>
   )
 }
